@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 
 from setuptools import setup
@@ -26,14 +27,14 @@ if os.environ.get('TOX_ENV') is None:
     }
 
 setup(
-    name='django-require',
+    name='django-require2',
     version=version_str,
     license='BSD',
     description=(
         'A Django staticfiles post-processor for optimizing with RequireJS.'),
-    author='Dave Hall',
-    author_email='dave@etianen.com',
-    url='https://github.com/etianen/django-require',
+    author='László Károlyi',
+    author_email='laszlo@karolyi.hu',
+    url='https://github.com/karolyi/django-require2',
     test_suite='tests',
     packages=packages,
     package_data=package_data,
@@ -54,8 +55,6 @@ setup(
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: pypy',
-        'Programming Language :: Python :: pypy3',
         'Topic :: Internet :: WWW/HTTP',
     ],
 )
