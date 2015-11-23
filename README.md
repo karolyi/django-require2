@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/karolyi/django-require.svg?branch=master)](https://travis-ci.org/karolyi/django-require) [![Coverage Status](https://coveralls.io/repos/karolyi/django-require/badge.svg?branch=master&service=github)](https://coveralls.io/github/karolyi/django-require?branch=master) [![Code Health](https://landscape.io/github/karolyi/django-require/master/landscape.svg?style=flat)](https://landscape.io/github/karolyi/django-require/master) [![PyPI](https://img.shields.io/pypi/pyversions/django-require.svg)]()
+[![Build Status](https://travis-ci.org/karolyi/django-require2.svg?branch=master)](https://travis-ci.org/karolyi/django-require2) [![Coverage Status](https://coveralls.io/repos/karolyi/django-require/badge.svg?branch=master&service=github)](https://coveralls.io/github/karolyi/django-require?branch=master) [![Code Health](https://landscape.io/github/karolyi/django-require2/master/landscape.svg?style=flat)](https://landscape.io/github/karolyi/django-require2/master) [![PyPI](https://img.shields.io/pypi/pyversions/django-require2.svg)]()
 
 django-require
 ==============
@@ -18,7 +18,7 @@ Installation
 
 1. Checkout the latest django-require release and copy or symlink the `require` directory into your `PYTHONPATH`.  If using pip, run `pip install django-require`.
 2. Add `'require'` to your `INSTALLED_APPS` setting.
-3. Set your `STATICFILES_STORAGE` setting to    `'require.storage.OptimizedStaticFilesStorage'`, `'require.storage.OptimizedCachedStaticFilesStorage'` or `'require.storage.OptimizedManifestStaticFilesStorage'`.
+3. Set your `STATICFILES_STORAGE` setting to `'require.storage.OptimizedStaticFilesStorage'`, `'require.storage.OptimizedCachedStaticFilesStorage'` or `'require.storage.OptimizedManifestStaticFilesStorage'`.
 
 Available settings
 ------------------
