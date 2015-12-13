@@ -1,10 +1,11 @@
 [![Build Status](https://travis-ci.org/karolyi/django-require2.svg?branch=master)](https://travis-ci.org/karolyi/django-require2) [![Coverage Status](https://coveralls.io/repos/karolyi/django-require/badge.svg?branch=master&service=github)](https://coveralls.io/github/karolyi/django-require?branch=master) [![Code Health](https://landscape.io/github/karolyi/django-require2/master/landscape.svg?style=flat)](https://landscape.io/github/karolyi/django-require2/master) ![PyPI](https://img.shields.io/pypi/pyversions/django-require2.svg) ![PyPI](https://img.shields.io/pypi/v/django-require2.svg)
 
-django-require
+django-require2
 ==============
 
-**django-require** is a Django staticfiles post-processor for optimizing with
-[`RequireJS`](http://requirejs.org/).
+**django-require2** is a Django staticfiles post-processor for optimizing with
+[`RequireJS`](http://requirejs.org/). Originally written using the code of
+`django-require`. *This package conflicts with it, so either use this, or that.*
 
 Features
 ------------
