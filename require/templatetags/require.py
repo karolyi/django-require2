@@ -41,19 +41,21 @@ def _build_standalone_tag(module):
     module_url = staticfiles_storage.url(resolve_require_module(relative_path))
     if not require_settings.REQUIRE_DEBUG:
         # Production mode, output the compiled script tag
-        return (
+        result = (
             '<script type="text/javascript" src="{0}">'
             '</script>').format(module_url)
+        return mark_safe(result)
     # Development mode generation below
     devel_tag = module_section.get('devel_tag', 'data_attr')
     require_url = staticfiles_storage.url(
         resolve_require_url(require_settings.REQUIRE_JS))
     if devel_tag == 'separate_tag':
         # Separate script tag mode
-        return (
+        result = (
             '<script type="text/javascript" src="{0}"></script>'
             '<script type="text/javascript" src="{1}"></script>').format(
             require_url, module_url)
+        return mark_safe(result)
     # Data attribute mode (devel_tag == 'data_attr')
     result = (
         '<script type="text/javascript" src="{0}" data-main="{1}">'
