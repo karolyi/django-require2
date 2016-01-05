@@ -4,6 +4,7 @@ import os
 
 from django import template
 from django.contrib.staticfiles.storage import staticfiles_storage
+from django.utils.safestring import mark_safe
 
 from require.conf import settings as require_settings
 from require.helpers import resolve_require_module, resolve_require_url
@@ -54,9 +55,10 @@ def _build_standalone_tag(module):
             '<script type="text/javascript" src="{1}"></script>').format(
             require_url, module_url)
     # Data attribute mode (devel_tag == 'data_attr')
-    return (
+    result = (
         '<script type="text/javascript" src="{0}" data-main="{1}">'
         '</script>').format(require_url, module_url)
+    return mark_safe(result)
 
 
 @register.simple_tag
@@ -74,10 +76,11 @@ def require_module(module):
         return _build_standalone_tag(module)
 
     # Non-standalone mode
-    return (
+    result = (
         '<script type="text/javascript" src="{src}" data-main="{module}">'
         '</script>').format(
         src=staticfiles_storage.url(
             resolve_require_url(require_settings.REQUIRE_JS)),
         module=staticfiles_storage.url(resolve_require_module(module)),
     )
+    return mark_safe(result)
