@@ -146,7 +146,7 @@ REQUIRE_STANDALONE_MODULES = {
     }
 }
 ```
-If you use `separate_tag` in the `devel_tag` option, it is advised that you explicitly define the module name **and** in `baseUrl` your `entry_file_name`. Example:
+If you use `separate_tag` in the `devel_tag` option, it is advised that you explicitly `define` the module name **and** the directory for your `entry_file_name` in `baseUrl`. Example:
 ```javascript
 /*global require, define */
 'use strict';
