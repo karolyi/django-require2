@@ -5,8 +5,7 @@ import shutil
 from optparse import make_option
 
 from django.conf import settings
-from django.core.management.base import CommandError, NoArgsCommand
-
+from django.core.management.base import BaseCommand, CommandError
 from require.conf import settings as require_settings
 
 
@@ -17,7 +16,7 @@ def default_staticfiles_dir():
     return staticfiles_dirs[0]
 
 
-class Command(NoArgsCommand):
+class Command(BaseCommand):
 
     help = (
         'Copies the base require.js file into your STATICFILES_DIRS.\n\n'
@@ -25,7 +24,7 @@ class Command(NoArgsCommand):
         'the REQUIRE_BUILD_PROFILE and REQUIRE_STANDALONE_MODULES settings.'
     )
 
-    option_list = NoArgsCommand.option_list + (
+    option_list = (
         make_option(
             '-f',
             '--force',
@@ -46,10 +45,10 @@ class Command(NoArgsCommand):
 
     requires_model_validation = False
 
-    def handle_noargs(self, **options):
+    def handle(self, **options):
         verbosity = int(options.get('verbosity', 1))
         # Calculate the destination dir.
-        dst_dir = options['dir'] or default_staticfiles_dir()
+        dst_dir = options.get('dir') or default_staticfiles_dir()
         if not dst_dir:
             raise CommandError(
                 'settings.STATICFILES_DIRS is empty, and no --dir '
@@ -80,7 +79,7 @@ class Command(NoArgsCommand):
             dst_path = os.path.abspath(
                 os.path.join(
                     dst_dir, require_settings.REQUIRE_BASE_URL, dst_name))
-            if os.path.exists(dst_path) and not options['force']:
+            if os.path.exists(dst_path) and not options.get('force'):
                 if verbosity > 0:
                     self.stdout.write(
                         '{0} already exists, skipping.\n'.format(dst_path))
